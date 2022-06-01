@@ -2,7 +2,7 @@
 session_start();
 include 'koneksi.php';
 
-// Jika sudah Login
+// Jika sudah Login admin
 if(isset($_SESSION['login'])){
     echo '<script>window.location="admin/dashboard.php"</script>';
 }
