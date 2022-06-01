@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html body {
+    background-image: url('../img/2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#container-fluid {
+    background-color: black;
+    opacity: 0.8;
+}
+
+nav {
+    background-color: black;
+    opacity: 0.8;
+    border-bottom: 1px solid wheat;
+    position: relative;
+    z-index: 100;
+}
+
+nav ul li {
+    font-weight: bold;
+}
