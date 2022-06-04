@@ -62,13 +62,13 @@
           <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Data Mobil</a>
+          <a class="nav-link" href="mobil/mobil.php"> Data Mobil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Data Tiket</a>
+          <a class="nav-link" href="rute/rute.php"> Data Rute</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Data Pesanan</a>
+          <a class="nav-link" href="#"> Data Booking</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -77,7 +77,7 @@
             Welcome <?php echo $_SESSION['a_global']->username ?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Profil</a></li>
+            <li><a class="dropdown-item" href="profil.php?id_admin=<?php echo $_SESSION['id_admin'] ?>">Profil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="../logout.php" onclick="return confirm('YAKIN INGIN KELUAR?')">logout</a></li>
           </ul>

@@ -51,7 +51,10 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">History Pemesanana Tiket</a></li>
-                <li><a class="dropdown-item" href="#">Profil</a></li>
+                <?php if(isset($_SESSION['status_admin'])) { ?>
+                <?php } else { ?>
+                  <li><a class="dropdown-item" href="profil.php?id_user=<?php echo $_SESSION['id_user'] ?>">Profil</a></li>
+                <?php }?>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
               </ul>
