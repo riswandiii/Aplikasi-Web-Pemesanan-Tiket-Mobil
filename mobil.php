@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HOME</title>
+    <title>MOBIL</title>
 
     <!-- Link Style Css -->
     <link rel="stylesheet" href="css/style.css">
@@ -44,7 +44,7 @@
                 Welcome, <?php echo $_SESSION['a_global']->username ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="history.php?">History Pemesanana Tiket</a></li>
+                <li><a class="dropdown-item" href="history.php">History Pemesanana Tiket</a></li>
                 <?php if(isset($_SESSION['status_admin'])) { ?>
                 <?php } else { ?>
                   <li><a class="dropdown-item" href="profil.php?id_user=<?php echo $_SESSION['id_user'] ?>">Profil</a></li>
@@ -67,38 +67,47 @@
 <div class="container-fluid" id="container-fluid">
   <div class="container">
 
-    <div class="row text-white text-center">
+    <div class="row text-white text-center mb-3">
       <div class="col-lg-12 mt-5">
-        <h3>~Welcome to Website~</h3>
+        <h3>~MOBIL BUS TERSEDIA~</h3>
       </div>
     </div>
 
-    <div class="row text-white text-center">
-      <div class="col-lg-12 mt-3 mb-3">
-        <h1>PEMESANAN TIKET BUS BERBASIS WEB</h1>
-      </div>
-    </div>
-    <hr>
+    <div class="row gx-1">
 
-    <div class="row py-3 text-white">
-      <div class="col-lg-3">
-        <img src="img/1.jpg" alt="" class="img-fluid img-thumbnail">
-      </div>
-      <div class="col-lg-4">
-        <h3>Kini pesan Bus parawisata ataupun yang lain sekarang sudah gampang</h3>
-        <a href="mobil.php" class="btn btn-outline-primary">Tiket Bus</a>
-      </div>
+    <?php 
+							$no = 1;
+							$mobil = mysqli_query($conn, "SELECT * FROM tb_mobil 
+                                                  INNER JOIN tb_rute ON tb_mobil.id_rute = tb_rute.id_rute    
+                            ");
+							if(mysqli_num_rows($mobil) > 0){
+							while($row = mysqli_fetch_array($mobil)){
+						?>
+						
+                        <div class="col-lg-4 mb-1">
+                            <div class="card p-3">
+                                <strong><p>Nama Mobil : <?php echo $row['nama_mobil'] ?></p></strong>
+                                <strong><p>Rute : <?php echo $row['rute'] ?></p></strong>
+                                <strong><p>Fasilitas : <?php echo $row['fasilitas'] ?></p></strong>
+                                <strong><p>Jam Berangkat : <?php echo $row['jam_berangkat'] ?></p></strong>
+                                <strong><p>Jam Tiba : <?php echo $row['jam_tiba'] ?></p></strong>
+                                <strong><p>Tanggal Berangkat : <?php echo $row['tanggal_berangkat'] ?></p></strong>
+                                <strong><p>Harga : Rp. <?php echo number_format($row['harga']) ?></p></strong>
+                                <div class="py-2">
+                                    <a href="pesan.php?id_mobil=<?php echo $row['id_mobil'] ?>" class="btn btn-primary">Pesan Tiket</a>
+                                </div>
+                            </div>
+                        </div>
+
+						<?php }}else{ ?>
+							<tr>
+								<td colspan="8" class="text-white">Belom Ada Data Mobil</td>
+							</tr>
+
+						<?php } ?>
+
     </div>
 
-    <div class="row py-3 text-white">
-      <div class="col-lg-3">
-        <img src="img/3.jpg" alt="" class="img-fluid img-thumbnail">
-      </div>
-      <div class="col-lg-4">
-        <h3>Semua Bus fasilitas terbaik dengan harga yang terjangkau</h3>
-        <a href="mobil.php" class="btn btn-outline-primary">Red More Mobil</a>
-      </div>
-    </div>
     <br>
   </div>
 </div>

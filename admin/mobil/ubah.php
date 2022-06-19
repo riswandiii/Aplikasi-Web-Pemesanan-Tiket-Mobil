@@ -103,8 +103,12 @@
             <input type="text" class="form-control" name="jam_tiba" placeholder="Jam Tiba....." autofocus id="jam_tiba" value="<?php echo $p->jam_tiba ?>">
         </div>
 
-        <div class="mb-3">
+        <div class="mb-1">
             <input type="date" class="form-control" name="tanggal_berangkat" autofocus id="tanggal_berangkat" value="<?php echo $p->tanggal_berangkat ?>">
+        </div>
+
+        <div class="mb-3">
+            <input type="number" class="form-control" name="harga" autofocus id="harga" value="<?php echo $p->harga ?>">
         </div>
 
         <div class="">
@@ -133,6 +137,7 @@
 						$jam_berangkat 		= $_POST['jam_berangkat'];
 						$jam_tiba 		    = $_POST['jam_tiba'];
 						$tanggal_berangkat 	= $_POST['tanggal_berangkat'];
+						$harga 	= $_POST['harga'];
 
 						// query update data mobil
 						$update = mysqli_query($conn, "UPDATE tb_mobil SET 
@@ -140,7 +145,8 @@
 												nama_mobil = '".$nama_mobil."',
 												fasilitas = '".$fasilitas."',
 												jam_berangkat = '".$jam_berangkat."',
-												jam_tiba = '".$jam_tiba."'
+												jam_tiba = '".$jam_tiba."',
+												harga = '".$harga."'
 												WHERE id_mobil = '".$p->id_mobil."' ");
 
 						if($update){

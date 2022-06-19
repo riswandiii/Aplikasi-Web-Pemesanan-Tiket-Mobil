@@ -68,7 +68,7 @@
           <a class="nav-link" href="rute/rute.php"> Data Rute</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Data Booking</a>
+          <a class="nav-link" href="booking/booking.php">Data Booking</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">

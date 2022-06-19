@@ -8,8 +8,6 @@
 						$no_handphone 		= $_POST['no_handphone'];
 						$alamat 		= $_POST['alamat'];
 
-                        $password = md5($password);
-
                         $insert = mysqli_query($conn, "INSERT INTO tb_user VALUES (
                             '',
                             '".$username."',
@@ -62,7 +60,7 @@
                         <input type="password" id="password" name="password" class="form-control" placeholder="Password...">
                     </div>
                     <div class="mb-1">
-                        <input type="number" id="No. Handphone" name="No. Handphone" class="form-control" placeholder="No. Handphone...">
+                        <input type="number" id="No. Handphone" name="no_handphone" class="form-control" placeholder="No. Handphone...">
                     </div>
                     <div class="mb-3">
                         <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat...">

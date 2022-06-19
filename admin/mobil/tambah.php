@@ -107,8 +107,12 @@ $tb_rute = rute("SELECT * FROM tb_rute");
             <input type="text" class="form-control" name="jam_tiba" placeholder="Jam Tiba....." autofocus id="jam_tiba">
         </div>
 
-        <div class="mb-3">
+        <div class="mb-1">
             <input type="date" class="form-control" name="tanggal_berangkat" autofocus id="tanggal_berangkat">
+        </div>
+
+        <div class="mb-3">
+            <input type="number" class="form-control" name="harga" autofocus id="harga" placeholder="Harga...">
         </div>
 
         <div class="">
@@ -128,8 +132,9 @@ $tb_rute = rute("SELECT * FROM tb_rute");
 						$jam_berangkat 	= $_POST['jam_berangkat'];
 						$jam_tiba 	= $_POST['jam_tiba'];
 						$tanggal_berangkat 	= $_POST['tanggal_berangkat'];
+						$harga 	= $_POST['harga'];
 						
-							$rutee = mysqli_query($conn, "INSERT INTO tb_mobil VALUES('', '$id_rute', '$nama_mobil', '$fasilitas', '$jam_berangkat', '$jam_tiba', '$tanggal_berangkat')");
+							$rutee = mysqli_query($conn, "INSERT INTO tb_mobil VALUES('', '$id_rute', '$nama_mobil', '$fasilitas', '$jam_berangkat', '$jam_tiba', '$tanggal_berangkat', '$harga')");
 
 							if($rutee){
 								echo '<script>alert("Tambah data berhasil")</script>';

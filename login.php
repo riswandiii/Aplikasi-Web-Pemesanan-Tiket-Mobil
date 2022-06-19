@@ -13,7 +13,7 @@ if(isset($_SESSION['login'])){
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $cek = mysqli_query($conn, "SELECT * FROM tb_user WHERE email = '".$email."' AND password = '".MD5($password)."'");
+    $cek = mysqli_query($conn, "SELECT * FROM tb_user WHERE email = '".$email."' AND password = '".$password."'");
     if(mysqli_num_rows($cek) > 0){
         $d = mysqli_fetch_object($cek);
         $_SESSION['login'] = true;

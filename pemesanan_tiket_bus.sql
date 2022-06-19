@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2022 at 10:21 PM
+-- Generation Time: Jun 19, 2022 at 04:53 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -41,7 +41,7 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nama_panggilan`, `username`, `no_handphone`, `email`, `password`) VALUES
-(1, 'admin', 'Admin', '085393855094', 'admin@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99');
+(2, 'admin', 'admin', '085676453987', 'admin@gmail.com', 'admin');
 
 -- --------------------------------------------------------
 
@@ -58,6 +58,13 @@ CREATE TABLE `tb_booking` (
   `harga` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_booking`
+--
+
+INSERT INTO `tb_booking` (`id_booking`, `id_mobil`, `id_user`, `status_booking`, `tanggal`, `harga`) VALUES
+(3, 6, 3, '0', '2022-06-19', 180000);
+
 -- --------------------------------------------------------
 
 --
@@ -71,18 +78,19 @@ CREATE TABLE `tb_mobil` (
   `fasilitas` varchar(100) NOT NULL,
   `jam_berangkat` varchar(100) NOT NULL,
   `jam_tiba` varchar(100) NOT NULL,
-  `tanggal_berangkat` date NOT NULL
+  `tanggal_berangkat` date NOT NULL,
+  `harga` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_mobil`
 --
 
-INSERT INTO `tb_mobil` (`id_mobil`, `id_rute`, `nama_mobil`, `fasilitas`, `jam_berangkat`, `jam_tiba`, `tanggal_berangkat`) VALUES
-(3, 3, 'Manggala', 'Selimut, Ac', '20.00', '05.00', '2022-06-28'),
-(5, 6, 'Borlindo', 'Selimut, Ac, Tv', '09.00', '05.30', '2022-06-05'),
-(6, 5, 'Primadona', 'Selimut, Ac', '17.00', '03.00', '2022-06-12'),
-(7, 6, 'andi', 'andi', 'andi', 'andi', '2022-05-31');
+INSERT INTO `tb_mobil` (`id_mobil`, `id_rute`, `nama_mobil`, `fasilitas`, `jam_berangkat`, `jam_tiba`, `tanggal_berangkat`, `harga`) VALUES
+(3, 3, 'Manggala', 'Selimut, Ac', '20.00', '05.00', '2022-06-28', 150000),
+(5, 6, 'Borlindo', 'Selimut, Ac, Tv', '09.00', '05.30', '2022-06-05', 200000),
+(6, 5, 'Primadona', 'Selimut, Ac', '17.00', '03.00', '2022-06-12', 180000),
+(7, 6, 'Pelindo', 'Ac, Selimut', '08.00', '15.00', '2022-05-31', 250000);
 
 -- --------------------------------------------------------
 
@@ -127,7 +135,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `email`, `password`, `no_handphone`, `alamat`) VALUES
-(1, 'user', 'user@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '085343856759', 'Makassar');
+(3, 'srywanty', 'srywanti@gmail.com', 'password', '085654676497', 'Toraja');
 
 --
 -- Indexes for dumped tables
@@ -174,13 +182,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_booking`
 --
 ALTER TABLE `tb_booking`
-  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_mobil`
@@ -198,7 +206,7 @@ ALTER TABLE `tb_rute`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

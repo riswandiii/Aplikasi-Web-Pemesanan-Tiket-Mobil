@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HOME</title>
+    <title>ABOUTS US</title>
 
     <!-- Link Style Css -->
     <link rel="stylesheet" href="css/style.css">
@@ -44,7 +44,7 @@
                 Welcome, <?php echo $_SESSION['a_global']->username ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="history.php?">History Pemesanana Tiket</a></li>
+                <li><a class="dropdown-item" href="history.php">History Pemesanana Tiket</a></li>
                 <?php if(isset($_SESSION['status_admin'])) { ?>
                 <?php } else { ?>
                   <li><a class="dropdown-item" href="profil.php?id_user=<?php echo $_SESSION['id_user'] ?>">Profil</a></li>
@@ -67,38 +67,45 @@
 <div class="container-fluid" id="container-fluid">
   <div class="container">
 
-    <div class="row text-white text-center">
+    <div class="row text-white text-center mb-3">
       <div class="col-lg-12 mt-5">
-        <h3>~Welcome to Website~</h3>
+        <h3>~About Us~</h3>
       </div>
     </div>
 
-    <div class="row text-white text-center">
-      <div class="col-lg-12 mt-3 mb-3">
-        <h1>PEMESANAN TIKET BUS BERBASIS WEB</h1>
-      </div>
-    </div>
-    <hr>
+    <div class="row mb-2 gx-1">
+                <div class="col-lg-12">
+                <div class="card mb-3 bg-light">
+                <div class="card-header">
+                    <h3>Silahkan Hubungi Kami</h3>
+                    <p>Untuk keluhan dan saran dan pendapat Anda, silahkan hubungi bengek kami melalui kontak beriku</p>
+                </div>
+                <div class="card-body">
+                    <div class="row  d-flex justify-content-center">
+                    <div class="col-lg-4">
+                        <h5><i class="bi bi-geo-alt"></i> Alamat Pengambilan Tiket</h5>
+                        <smal class="d-block">Jalan Poros Makassar - Maros</smal>
+                        <smal  class="d-block">Makassar, Sulawesi-Selatan</smal>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5><i class="bi bi-telephone-fill"></i> No. Handphone</h5>
+                        <p class="d-block">Untuk fast respon silahkan hubungi nomor wa berikut</p>
+                        <p  class="d-block">085644576498</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5><i class="bi bi-envelope-fill"></i> Email</h5>
+                        <p class="d-block">Gunakan email untuk memberikan saran Anda</p>
+                        <p  class="d-block">pemesanantiktmakassar@gmail.co.id</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
 
-    <div class="row py-3 text-white">
-      <div class="col-lg-3">
-        <img src="img/1.jpg" alt="" class="img-fluid img-thumbnail">
-      </div>
-      <div class="col-lg-4">
-        <h3>Kini pesan Bus parawisata ataupun yang lain sekarang sudah gampang</h3>
-        <a href="mobil.php" class="btn btn-outline-primary">Tiket Bus</a>
-      </div>
-    </div>
+        <div class="row">
+            <br><br><br><br><br>
 
-    <div class="row py-3 text-white">
-      <div class="col-lg-3">
-        <img src="img/3.jpg" alt="" class="img-fluid img-thumbnail">
-      </div>
-      <div class="col-lg-4">
-        <h3>Semua Bus fasilitas terbaik dengan harga yang terjangkau</h3>
-        <a href="mobil.php" class="btn btn-outline-primary">Red More Mobil</a>
-      </div>
-    </div>
     <br>
   </div>
 </div>

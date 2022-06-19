@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DATA MOBIL</title>
+    <title>DATA BOOKING</title>
 
     <style>
         * {
@@ -51,19 +51,13 @@
   <body>
 
 <div class="container-fluid" id="container-fluid">
-  <div class="container">
+  <div class="container-fluid">
 
   <div class="row text-white text-center">
-      <div class="col-lg-12 mt-5">
-          <h3>DATA TABLE MOBIL</h3>
+      <div class="col-lg-12 mt-5 mb-4">
+          <h3>DATA TABLE BOOKING</h3>
       </div>
   </div>
-
-  <div class="row mt-3 mb-4">
-        <div class="col-lg-12">
-            <a href="tambah.php" class="btn btn-primary btn-sm">Tambah Data Mobil</a>
-        </div>
-    </div>
 
   <div class="row">
         <div class="col-lg-12">
@@ -72,43 +66,49 @@
                     <thead>
                         <tr data-aos="fade-right" data-aos-duration="2000">
                             <th>No</th>
-                            <th>Rute</th>
-                            <th>Nama Mobil</th>
-                            <th>Fasilitas</th>
-                            <th>Jam Berangkat</th>
-                            <th>Jam Tiba</th>
-                            <th>Tanggal Berangkat</th>
+                            <th>Pemesan</th>
+                            <th>Email</th>
+                            <th>Telepon</th>
+                            <th>Alamat</th>
+                            <th>Mobil</th>
+                            <th>Tanggal</th>
                             <th>Harga</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php 
 							$no = 1;
-							$mobil = mysqli_query($conn, "SELECT * FROM tb_mobil 
-                                                  INNER JOIN tb_rute ON tb_mobil.id_rute = tb_rute.id_rute    
+							$booking = mysqli_query($conn, "SELECT * FROM tb_booking 
+                                                  INNER JOIN tb_user ON tb_booking.id_user = tb_user.id_user
+                                                  INNER JOIN tb_mobil ON tb_booking.id_mobil = tb_mobil.id_mobil   
                             ");
-							if(mysqli_num_rows($mobil) > 0){
-							while($row = mysqli_fetch_array($mobil)){
+							if(mysqli_num_rows($booking) > 0){
+							while($row = mysqli_fetch_array($booking)){
 						?>
 						<tr>
 							<td class="text-white"><?php echo $no++ ?></td>
-							<td class="text-white"><?php echo $row['rute'] ?></td>
+							<td class="text-white"><?php echo $row['username'] ?></td>
+							<td class="text-white"><?php echo $row['email'] ?></td>
+							<td class="text-white"><?php echo $row['no_handphone'] ?></td>
+							<td class="text-white"><?php echo $row['alamat'] ?></td>
 							<td class="text-white"><?php echo $row['nama_mobil'] ?></td>
-							<td class="text-white"><?php echo $row['fasilitas'] ?></td>
-							<td class="text-white"><?php echo $row['jam_berangkat'] ?></td>
-							<td class="text-white"><?php echo $row['jam_tiba'] ?></td>
-							<td class="text-white"><?php echo $row['tanggal_berangkat'] ?></td>
+							<td class="text-white"><?php echo $row['tanggal'] ?></td>
                             <td class="text-white">Rp. <?php echo number_format($row['harga']) ?></td>
-                            <td>
-                                <a href="ubah.php?id_mobil=<?php echo $row['id_mobil']?>" class="btn btn-primary btn-sm">Edit</a> ||
-                                <a href="hapus.php?id_mobil=<?php echo $row['id_mobil'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('YAKIN INGI HAPUS DATA?')">Delete</a>
+							<?php if($row['status_booking'] == '0') { ?>
+                            <td><a href="terima.php?id_booking=<?php echo $row['id_booking'] ?>" class="btn btn-primary btn-sm" onclick="return confirm('YAKIN INGIN TERIMA PESANAN TIKET?')">Terima</a></td>
+                            <?php }else{ ?>
+                            <td class="text-success">Pesanan Tiket Telah Di Terima</td>
+                            <?php } ?>
+                            <th>
+                                <a href="hapus_pesanan.php?id_booking=<?php echo $row['id_booking'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('YAKIN INGI HAPUS DATA?')">Delete</a>
                             </td>
                             
 						</tr>
 						<?php }}else{ ?>
 							<tr>
-								<td colspan="8" class="text-white">Belom Ada Data Mobil</td>
+								<td colspan="9" class="text-white">Belom Ada Data Booking</td>
 							</tr>
 
 						<?php } ?>
